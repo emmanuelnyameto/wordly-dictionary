@@ -1,0 +1,256 @@
+:root {
+  --bg: #f5f7fb;
+  --surface: #ffffff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --border: #e5e7eb;
+  --error-bg: #fee2e2;
+  --error-text: #b91c1c;
+  --saved-bg: #fef3c7;
+}
+
+[data-theme="dark"] {
+  --bg: #0f172a;
+  --surface: #1e293b;
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --primary: #60a5fa;
+  --primary-hover: #93c5fd;
+  --border: #334155;
+  --error-bg: #450a0a;
+  --error-text: #fca5a5;
+  --saved-bg: #422006;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  transition: background 0.3s, color 0.3s;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+.site-header h1 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.container {
+  max-width: 760px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  padding: 0.6rem 1.1rem;
+  border: none;
+  border-radius: 8px;
+  background: var(--primary);
+  color: #fff;
+  transition: background 0.2s, transform 0.1s;
+}
+
+button:hover {
+  background: var(--primary-hover);
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.search-form {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.search-form input {
+  flex: 1;
+  font: inherit;
+  padding: 0.7rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text);
+}
+
+.error {
+  margin: 0.75rem 0 0;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  background: var(--error-bg);
+  color: var(--error-text);
+}
+
+.loading {
+  margin-top: 1.5rem;
+  text-align: center;
+  color: var(--muted);
+}
+
+.results {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.results.is-saved {
+  background: var(--saved-bg);
+}
+
+.result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.result-header h2 {
+  margin: 0;
+  font-size: 2rem;
+  text-transform: capitalize;
+}
+
+.phonetic {
+  margin: 0;
+  color: var(--muted);
+}
+
+.result-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.meaning {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.part-of-speech {
+  margin: 0 0 0.5rem;
+  font-style: italic;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.definition-list {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.definition-list li {
+  margin-bottom: 0.75rem;
+}
+
+.example {
+  display: block;
+  color: var(--muted);
+  font-style: italic;
+}
+
+.synonyms {
+  margin: 0.5rem 0 0;
+  color: var(--muted);
+}
+
+.source {
+  margin-top: 1.25rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.source a {
+  color: var(--primary);
+}
+
+.saved {
+  margin-top: 2rem;
+}
+
+.saved-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.saved-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.3rem 0.4rem 0.3rem 0.8rem;
+  background: var(--saved-bg);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  transition: transform 0.15s;
+}
+
+.saved-list li:hover {
+  transform: translateY(-2px);
+}
+
+.saved-list li button {
+  padding: 0.2rem 0.5rem;
+  background: transparent;
+  color: var(--text);
+}
+
+.saved-list li button:hover {
+  background: var(--border);
+}
+
+#saved-empty {
+  color: var(--muted);
+}
+
+@media (max-width: 480px) {
+  .search-form {
+    flex-direction: column;
+  }
+
+  .result-header h2 {
+    font-size: 1.6rem;
+  }
+}

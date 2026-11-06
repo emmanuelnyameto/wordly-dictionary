@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wordly Dictionary</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1>Wordly Dictionary</h1>
+    <button id="theme-toggle" type="button" aria-label="Toggle dark and light theme">Dark mode</button>
+  </header>
+
+  <main class="container">
+    <section aria-labelledby="search-heading">
+      <h2 id="search-heading" class="visually-hidden">Search for a word</h2>
+      <form id="search-form" class="search-form" role="search">
+        <label for="word-input" class="visually-hidden">Enter a word</label>
+        <input id="word-input" type="text" placeholder="Search a word, e.g. hello" autocomplete="off" aria-label="Word to search">
+        <button id="search-btn" type="submit">Search</button>
+      </form>
+      <p id="error-message" class="error hidden" role="alert"></p>
+    </section>
+
+    <section id="loading" class="loading hidden" aria-live="polite">Looking up word...</section>
+
+    <section id="results" class="results hidden" aria-live="polite" aria-labelledby="result-word">
+      <div class="result-header">
+        <div>
+          <h2 id="result-word"></h2>
+          <p id="result-phonetic" class="phonetic"></p>
+        </div>
+        <div class="result-actions">
+          <button id="audio-btn" type="button" class="hidden" aria-label="Play pronunciation">Play audio</button>
+          <button id="save-btn" type="button" aria-label="Save this word">Save word</button>
+        </div>
+      </div>
+      <div id="meanings"></div>
+      <p class="source">Source: <a id="source-link" href="#" target="_blank" rel="noopener noreferrer"></a></p>
+    </section>
+
+    <section class="saved" aria-labelledby="saved-heading">
+      <h2 id="saved-heading">Saved Words</h2>
+      <ul id="saved-list" class="saved-list"></ul>
+      <p id="saved-empty">No saved words yet.</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
